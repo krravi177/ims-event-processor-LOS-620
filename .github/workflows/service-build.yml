@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+jobs:
+  build:
+    name: Build
+    uses: Xpanse-Shared-Resources/ghw-java-maven-service-build/.github/workflows/workflow.yml@v1.13.0
+    with:
+      generate-java-client: false
+      generate-typescript-client: false
+      parent-pom-group-id: 'com.xpanse.ims'
+      parent-pom-artifact-id: 'ims-parent'
+    secrets: inherit
